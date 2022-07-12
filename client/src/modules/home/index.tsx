@@ -42,6 +42,10 @@ const Home = () => {
     }
   };
 
+  const filterLoad = async () => {
+    //how should I them
+  };
+
   return (
     <Grid templateColumns="repeat(3, 1fr)" columnGap={10} mt="5">
       <GridItem colSpan={{ base: 3, md: 2 }}>
@@ -51,14 +55,14 @@ const Home = () => {
           <CheckboxGroup colorScheme="teal">
             Choose Event to hide:
             <HStack spacing={5}>
-              <Checkbox id="filterSelector" value="private">
+              <Checkbox id="privateSelector" value="private">
                 Private
               </Checkbox>
-              <Checkbox id="filterSelector" value="canseled">
+              <Checkbox id="canseledSelector" value="canseled">
                 Canseled
               </Checkbox>
               {/* need to check if it has data-checked attributed */}
-              <Button>Filter</Button>
+              <Button onClick={filterLoad}>Filter</Button>
             </HStack>
           </CheckboxGroup>
 
