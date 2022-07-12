@@ -7,7 +7,10 @@ import {
   GridItem,
   Button,
   useToast,
+  // Checkbox,
+  // CheckboxGroup
 } from '@chakra-ui/react';
+
 import React, { useState } from 'react';
 
 import { ChapterCard } from 'components/ChapterCard';
@@ -42,6 +45,17 @@ const Home = () => {
       <GridItem colSpan={{ base: 3, md: 2 }}>
         <VStack align="flex-start">
           <Heading>Upcoming events</Heading>
+
+          {/* <CheckboxGroup
+              spacing={7}
+              variantColor="teal"
+              isInline
+            >
+              <label>Choose Event to hide: </label>
+                <Checkbox value="private">Private</Checkbox>
+                <Checkbox value="closed">Closed</Checkbox>
+            </CheckboxGroup> */}
+
           {loading ? (
             <Spinner />
           ) : error || !data ? (
