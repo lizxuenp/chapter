@@ -7,8 +7,9 @@ import {
   GridItem,
   Button,
   useToast,
-  // Checkbox,
-  // CheckboxGroup
+  Checkbox,
+  CheckboxGroup,
+  HStack,
 } from '@chakra-ui/react';
 
 import React, { useState } from 'react';
@@ -22,6 +23,7 @@ const Home = () => {
   const { loading, error, data, fetchMore } = useHomeQuery({
     variables: { offset: 0, limit: 2 },
   });
+  console.log({ data });
 
   const toast = useToast();
   const onLoadMore = async () => {
@@ -46,15 +48,19 @@ const Home = () => {
         <VStack align="flex-start">
           <Heading>Upcoming events</Heading>
 
-          {/* <CheckboxGroup
-              spacing={7}
-              variantColor="teal"
-              isInline
-            >
-              <label>Choose Event to hide: </label>
-                <Checkbox value="private">Private</Checkbox>
-                <Checkbox value="closed">Closed</Checkbox>
-            </CheckboxGroup> */}
+          <CheckboxGroup colorScheme="teal">
+            Choose Event to hide:
+            <HStack spacing={5}>
+              <Checkbox id="filterSelector" value="private">
+                Private
+              </Checkbox>
+              <Checkbox id="filterSelector" value="canseled">
+                Canseled
+              </Checkbox>
+              {/* need to check if it has data-checked attributed */}
+              <Button>Filter</Button>
+            </HStack>
+          </CheckboxGroup>
 
           {loading ? (
             <Spinner />
